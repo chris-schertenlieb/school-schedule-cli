@@ -16,7 +16,7 @@ function printCourseSchedule(){
         } else {
             text += t + (t.length > 3 ? ' ' : '  ');
             DAYS.forEach((d) => {
-                const course = courseData.courses.find((x) =>{return x.class_time == t && x.class_days.filter(x => x == d)});
+                const course = courseData.courses.find((x) =>{return (x.class_time == t && x.class_days.find(x => x == d))});
                 if(course){
                     text += '| ' + course.class_code + '   ';
                 } else {
