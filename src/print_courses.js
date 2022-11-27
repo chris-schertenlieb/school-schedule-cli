@@ -28,6 +28,7 @@ function printCourseSchedule(){
             // then loop over columns (day)
             DAYS.forEach((d) => {
                 //*check if there is a course on day d (at time t)
+                // padding const
                 const padding = d.length + 3;
 
                 // find a course with the same class_time as t and has class_days that include day d
