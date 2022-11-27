@@ -50,5 +50,6 @@ function printCourseSchedule(){
     });
 }
 
+// todo CRS | 2022-11-27: Add additional information to the schedule. Room name is probably highest priority, then instructor name.
 printCourseSchedule();
 

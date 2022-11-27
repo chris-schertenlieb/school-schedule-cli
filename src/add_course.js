@@ -41,7 +41,7 @@ const add_prompt = [
         msg: 'What is the room name?'
     }
 ];
-
+// todo CRS | 2022-11-27: Global search & replace refactor of the word "course" to the word "class", using both is confusing
 //* prompt the user
 inquirer.prompt(add_prompt).then(
     answers => {
