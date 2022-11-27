@@ -13,12 +13,13 @@
 export function validateAnswers(a){
     // only validator right now is checking that some class days were selected (since cli lets you select none)
     if(a.class_days.length > 0){
-        // answers are valid, return true
+        //* answers are valid, return true
         return true;
     } else {
-        // no class days selected, return false
+        //* no class days selected, return false
         return false;
     }
+    // todo CRS | 2022-11-27: Add basic validations on input length
 }
 /**
  * 
@@ -33,14 +34,14 @@ export function validateClassOverlap(a, courseData){
     const new_course_time = a.class_time;
     const new_course_days = a.class_days;
 
-    // check for overlapping courses
+    //* check for overlapping courses
     const overlapping_course = existing_courses.find(
         (c) => {
             // find a course where the course time matches && at least one day is the same (array intersect)
             return (c.class_time == new_course_time) && (c.class_days.filter((x) => {new_course_days.includes(x)}));
         }
     );
-    // if we have a course here, there's an overlap so we return false
+    //* if we found a course, there's an overlap so we return false
     if(overlapping_course){
         return {valid: false, msg: overlapping_course.class_name};
     } else {

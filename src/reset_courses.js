@@ -6,7 +6,7 @@ function resetCourseData(){
     // load default
     const default_data = JSON.stringify(defaultCourseData);
 
-    // overwrite the courses file with the default course data
+    //* overwrite the courses file with the default course data
     fs.writeFile('src/data/courses.json', default_data, 'utf8', function writeCallback(err, data){
         if(err){
             console.error(err);

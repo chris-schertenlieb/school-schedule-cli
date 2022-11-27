@@ -5,6 +5,7 @@ import { validateAnswers, validateClassOverlap } from "./functions.js";
 import courseData from "./data/courses.json" assert {type: "json"};
 import fs from "fs";
 
+//* Configure the add prompt
 const add_prompt = [
     {
         type: 'input',
@@ -41,18 +42,25 @@ const add_prompt = [
     }
 ];
 
+//* prompt the user
 inquirer.prompt(add_prompt).then(
     answers => {
         const answersValid = validateAnswers(answers);
         const overlapCheck = validateClassOverlap(answers, courseData);
+
+        //* check if inputs are valid
         if (answersValid) {
+            //* check if new class overlaps with an existing class
             if(overlapCheck.valid){
                 console.log('Saving...\n');
 
-                // we would do a database operation here, but in this case, we can just save to our JSON file
+                // we would do a database operation here, but for sake of scope, we can just save to our JSON file to imitate back end functionality
+
+                //* Append the new class
                 courseData.courses.push(answers);
                 const data = JSON.stringify(courseData);
     
+                //* Save the new class
                 // Overwrite course file
                 fs.writeFile('src/data/courses.json', data, 'utf8', function writeCallback(err, data){
                     if(err){
