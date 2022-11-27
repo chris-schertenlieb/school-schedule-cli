@@ -1,6 +1,8 @@
 # school-schedule-cli
 > You will be writing a command line interface to represent a weekly school schedule.
 
+This application uses a CLI to manage a "class schedule". You can print out your class schedule at any time, add a class, or reset to the default.
+
 In lieu of a database, we're writing and reading from a courses.json file. We can restore to a courses.default.json at any time. Both files live in the `/data/` directory.
 
 ## Setup
