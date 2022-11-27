@@ -1,6 +1,6 @@
 /**
  * The init file that runs on NPM Start.
- * Substitute for a --help functionality
+ * Substitute for --help functionality
  */
 function init(){
     console.log("Welcome to the Class Command Line!\n");
