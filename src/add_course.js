@@ -43,7 +43,7 @@ const add_prompt = [
 
 inquirer.prompt(add_prompt).then(
     answers => {
-        if (validateAnswers(answers)) {
+        if (validateAnswers(answers) && validateClassOverlap(answers, courseData)) {
             console.log('Saving...');
 
             // we would do a database operation here, but in this case, we can just save to our JSON file

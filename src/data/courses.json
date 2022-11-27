@@ -3,7 +3,7 @@
         {
             "class_name": "English Literature",
             "class_code": "LIT1",
-            "class_time": "3pm",
+            "class_time": "3PM",
             "class_days": [
                 "Monday",
                 "Wednesday",
@@ -15,7 +15,7 @@
         {
             "class_name": "Trigonometry",
             "class_code": "TRIG",
-            "class_time": "11am",
+            "class_time": "11AM",
             "class_days": [
                 "Tuesday",
                 "Thursday"
@@ -26,7 +26,7 @@
         {
             "class_name": "Physical Education",
             "class_code": "PE",
-            "class_time": "3pm",
+            "class_time": "3PM",
             "class_days": [
                 "Thursday"
             ],
