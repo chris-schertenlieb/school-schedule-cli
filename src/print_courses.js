@@ -28,16 +28,18 @@ function printCourseSchedule(){
             // then loop over columns (day)
             DAYS.forEach((d) => {
                 //*check if there is a course on day d (at time t)
+                const padding = d.length + 3;
 
                 // find a course with the same class_time as t and has class_days that include day d
                 const course = courseData.courses.find((x) =>{return (x.class_time == t && x.class_days.find(x => x == d))});
 
                 //* if we found a course, output class_code
                 if(course){
-                    text += '| ' + course.class_code + '   ';
+                    var str = ('| ' + course.class_code).padEnd(padding);
+                    text += str;
                 } else {
                 //* else blank space
-                    text += '|' + tabspace + tabspace;
+                    text += ('|'.padEnd(padding));
                 }
             });
             // output
