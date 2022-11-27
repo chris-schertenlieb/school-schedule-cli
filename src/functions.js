@@ -24,7 +24,7 @@ export function validateAnswers(a){
  * 
  * @param a - answers from the inquierer add_course prompt
  * @param courseData - existing course data loaded from ./data/courses.json during the add_class script
- * @returns {boolean}
+ * @returns {valid: boolean, msg: string}
  */
 // validate that the course they're trying to add doesn't overlap with a class they're already enrolled for
 export function validateClassOverlap(a, courseData){
@@ -33,15 +33,17 @@ export function validateClassOverlap(a, courseData){
     const new_course_time = a.class_time;
     const new_course_days = a.class_days;
 
+    // check for overlapping courses
     const overlapping_course = existing_courses.find(
         (c) => {
-            // find a course where the course time matches, and at least one day is the same (array intersect)
+            // find a course where the course time matches && at least one day is the same (array intersect)
             return (c.class_time == new_course_time) && (c.class_days.filter((x) => {new_course_days.includes(x)}));
         }
     );
+    // if we have a course here, there's an overlap so we return false
     if(overlapping_course){
-        return false;
+        return {valid: false, msg: overlapping_course.class_name};
     } else {
-        return true;
+        return {valid: true, msg: 'success'};
     }
 }

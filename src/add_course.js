@@ -43,36 +43,31 @@ const add_prompt = [
 
 inquirer.prompt(add_prompt).then(
     answers => {
-        if (validateAnswers(answers) && validateClassOverlap(answers, courseData)) {
-            console.log('Saving...');
+        const answersValid = validateAnswers(answers);
+        const overlapCheck = validateClassOverlap(answers, courseData);
+        if (answersValid) {
+            if(overlapCheck.valid){
+                console.log('Saving...\n');
 
-            // we would do a database operation here, but in this case, we can just save to our JSON file
-            courseData.courses.push(answers);
-            const data = JSON.stringify(courseData);
+                // we would do a database operation here, but in this case, we can just save to our JSON file
+                courseData.courses.push(answers);
+                const data = JSON.stringify(courseData);
+    
+                // Overwrite course file
+                fs.writeFile('src/data/courses.json', data, 'utf8', function writeCallback(err, data){
+                    if(err){
+                        console.log(err);
+                    }
+                    else {
+                        console.log('Course added successfully! Try running print_courses to see your new schedule!\n')
+                    }
+                });
+            } else {
+                console.error('\nUh oh! \nThe course you added overlaps with another course you\'re enrolled in! \nOverlapping Course: %s', overlapCheck.msg);
+            }
 
-            // File writing
-            fs.writeFile('src/data/courses.json', data, 'utf8', function writeCallback(err, data){
-                if(err){
-                    console.log(err);
-                }
-                else {
-                    console.log(data);
-                }
-            });
         } else {
-            console.error('There was an issue with your course input! Please try again.');
+            console.error('\nUh oh! \nThere was an issue with your course input! Please check your answers and try again.');
         }
     }
 );
-
-
-/*const cmd = require("commander");
-
-cmd.command('add').alias('a').action(() => {
-    prompt(add_prompt).then(
-        (data) => {
-            console.log('omg we did it?')
-            console.log(data);
-        }
-    )
-});*/
