@@ -1,0 +1,47 @@
+{
+    "courses": [
+        {
+            "class_name": "English Literature",
+            "class_code": "LIT1",
+            "class_time": "3pm",
+            "class_days": [
+                "Monday",
+                "Wednesday",
+                "Friday"
+            ],
+            "instructor_name": "Antonovich",
+            "room_name": "Baker 110"
+        },
+        {
+            "class_name": "Trigonometry",
+            "class_code": "TRIG",
+            "class_time": "11am",
+            "class_days": [
+                "Tuesday",
+                "Thursday"
+            ],
+            "instructor_name": "Bai",
+            "room_name": "Helens 305"
+        },
+        {
+            "class_name": "Physical Education",
+            "class_code": "PE",
+            "class_time": "3pm",
+            "class_days": [
+                "Thursday"
+            ],
+            "instructor_name": "Cruz",
+            "room_name": "Gymnasium"
+        },
+        {
+            "class_name": "c",
+            "class_code": "c",
+            "class_time": "11AM",
+            "class_days": [
+                "Tuesday"
+            ],
+            "instructor_name": "c",
+            "room_name": "c"
+        }
+    ]
+}

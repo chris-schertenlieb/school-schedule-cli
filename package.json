@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/clint.js"
+    "start": "node ./src/init.js",
+    "add_course": "node ./src/add_course.js",
+    "print_courses": "node ./src/print_courses.js",
+    "reset_courses": "node ./src/reset_courses.js"
   },
   "repository": {
     "type": "git",
