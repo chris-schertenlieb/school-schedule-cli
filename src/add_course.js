@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import inquirer from "inquirer";
-import { validateAnswers } from "./functions.js";
+import { validateAnswers, validateClassOverlap } from "./functions.js";
 import courseData from "./data/courses.json" assert {type: "json"};
 import fs from "fs";
 

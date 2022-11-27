@@ -30,13 +30,13 @@ export function validateAnswers(a){
 export function validateClassOverlap(a, courseData){
     const existing_courses = courseData.courses;
 
-    const new_course_time = a.course_time;
-    const new_course_days = a.course_days;
+    const new_course_time = a.class_time;
+    const new_course_days = a.class_days;
 
     const overlapping_course = existing_courses.find(
         (c) => {
             // find a course where the course time matches, and at least one day is the same (array intersect)
-            return (c.course_time == new_course_time) && (c.course_days.filter((x) => {new_course_days.includes(x)}));
+            return (c.class_time == new_course_time) && (c.class_days.filter((x) => {new_course_days.includes(x)}));
         }
     );
     if(overlapping_course){
